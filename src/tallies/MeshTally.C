@@ -230,7 +230,7 @@ MeshTally::spatialFilter()
 
       _xdg_instance.reset(new xdg::XDG(_xdg_mesh_manager, xdg::RTLibrary::EMBREE));
       auto xdg_mesh = std::make_unique<openmc::XDGMesh>(_xdg_instance);
-      xdg_mesh->set_length_multiplier(_openmc_problem.scaling());
+      xdg_mesh->set_length_scaling(_openmc_problem.scaling());
       openmc::model::meshes.emplace_back(std::move(xdg_mesh));
     }
     else
